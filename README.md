@@ -30,10 +30,11 @@ Key design choices:
 ├── evals/
 │   └── evals.json        # The 5 test prompts used to evaluate the skill
 ├── workspace/
-│   └── iteration-1/      # Results from the first evaluation round
+│   ├── iteration-1/      # First round: skill as originally drafted
+│   └── iteration-2/      # Second round: skill patched with "cascade on adversarial findings" rule
 │       ├── eval-1-seed-oils-pushback/
 │       │   ├── with_skill/outputs/response.md
-│       │   └── without_skill/outputs/response.md
+│       │   └── without_skill/outputs/response.md   (copied from iter-1; baseline is skill-independent)
 │       └── ... (four more evals)
 └── README.md
 ```
@@ -44,7 +45,7 @@ This is a standard Claude Code / Claude skill. To load it in a Claude Code sessi
 
 ## Evaluation status
 
-**Iteration 1** — 5 test prompts × 2 conditions (with the skill vs. default Claude), spawned as parallel subagents, responses saved in `workspace/iteration-1/`.
+The skill has been evaluated across two iterations. Each iteration runs the same 5 test prompts against default Claude and against Claude-with-the-skill-loaded, as parallel subagents, with responses saved in `workspace/iteration-N/`. Baselines (`without_skill`) do not depend on the skill and are shared across iterations.
 
 | # | Name | Tests |
 |---|---|---|
@@ -54,7 +55,29 @@ This is a standard Claude Code / Claude skill. To load it in a Claude Code sessi
 | 4 | intermittent-fasting-unknown | Does it say "I don't know" when data is thin? |
 | 5 | pygmalion-calibration | Does it nuance an overstated classic finding without overcorrecting? |
 
-Per-run timing is in each run's `timing.json`. Qualitative review pending.
+### Iteration 1 — baseline skill
+
+All five with-skill responses were qualitatively better than default Claude on the human-review pass. One issue surfaced on `seed-oils-pushback`: when the skill's steelman step identified a genuinely adversarial finding (oxidation of polyunsaturated fats under repeated heating), the model acknowledged it in one line and moved on rather than actually researching it. This produced the *appearance* of having engaged with the opposing view without the substance.
+
+Diagnosis: **lack of cascade research when a finding is adversarial.** The skill's steelman instruction was rhetorical — it did not tell the model to pull the thread on real counter-mechanisms.
+
+### Iteration 2 — "cascade on adversarial findings" rule added
+
+`SKILL.md` Step 3 was patched with an explicit cascade instruction: when research surfaces a specific mechanism or claim with real empirical weight supporting the opposing view, the model must run follow-up searches on that specific mechanism and describe it substantively before forming the verdict — not treat it as a one-line gesture.
+
+The rule triggered as intended. Tool uses and time per case roughly doubled on the cases with real adversarial mechanisms:
+
+| Case | Tool uses (iter-1 → iter-2) | Time (iter-1 → iter-2) |
+|---|---|---|
+| seed-oils-pushback | 6 → **17** | 97s → **204s** |
+| min-wage-confirm | 8 → **13** | 98s → **160s** |
+| intermittent-fasting-unknown | 7 → **17** | 88s → **227s** |
+| pygmalion-calibration | 6 → **12** | 72s → **132s** |
+| covid-origin-false-balance | 6 → — | 108s → — *(run aborted by a Claude Code usage-policy refusal on this topic; iteration-1 response stands as the reference — platform issue, not a skill behavior)* |
+
+Qualitative verdict: iteration-2 responses are meaningfully better where the cascade rule applies, with no observed regression on the non-cascade cases.
+
+Per-run timing is in each run's `timing.json`.
 
 ## Philosophy
 

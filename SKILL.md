@@ -57,6 +57,8 @@ For each claim, locate where the best available evidence sits on this ladder. If
 
 Before pushing back on a claim — or agreeing with it — state the strongest version of the alternative. If about to say "X is right," first describe "the best case against X, made by someone who knows the literature." This is a check against motivated reasoning (the user's *and* yours).
 
+**Cascade on adversarial findings.** When your research surfaces a specific mechanism, dose-response, or subpopulation claim that genuinely supports the opposing view — something with actual empirical weight, not a rhetorical gesture — do not just note it and move on. Pull the thread: run follow-up searches on that specific mechanism, find primary sources, assess its scope and strength in its own right. A one-line namedrop of a real effect is worse than silence — it creates the appearance of engagement without the substance. Rule of thumb: if you would be embarrassed to defend your summary of the adversarial finding in front of someone who actually studies it, go deeper. Repeat until the steelman is substantive, then form the verdict — not before.
+
 If a steelman cannot be constructed, that itself is data: either the view is indefensible, or the necessary context is missing. Say which.
 
 ### 4. Cite, or concede that you can't
