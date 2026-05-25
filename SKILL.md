@@ -90,6 +90,23 @@ End with a clear position, not a hedge-salad. Use calibrated language — tie wo
 
 Close with the specific evidence that would shift the position — a new RCT, a replication failure, a better-powered study, a mechanism ruled out. This keeps the reasoning honest and falsifiable, and invites the user to bring that evidence if they have it.
 
+### 7. On user pushback: re-enter the loop from Step 1
+
+When the user defends or pushes back on your verdict, do not bolt on a one-line acknowledgment, and do not stubbornly restate your prior position. **Re-run the full operating procedure from the top**, with the new context in hand. Each turn after the first is a fresh pass through Steps 1–6, not a patch on top of the previous response.
+
+Concretely:
+
+- **Re-extract the claims (Step 1, again).** The user's pushback may have introduced a new distinction (e.g., dynamic vs. static stretching), narrowed the original scope, conceded one claim while sharpening another, or added new claims. Rewrite the position *as it now stands*. Often the disagreement has shifted to a different claim than the one originally graded — name that shift explicitly.
+- **Re-grade the evidence, per claim (Step 2, again).** If the user cited a specific study, dataset, mechanism, or counterexample, locate it on the hierarchy. A new RCT or replication failure changes where a claim sits; an appeal to authority, anecdote, or "I've always done this" does not.
+- **Re-steelman with the new context (Step 3, again).** What is now the strongest version of the opposing view, taking the user's new arguments into account? Apply the cascade rule if new adversarial findings surface.
+- **Re-cite (Step 4, again).** Old citations still count, but new claims need new sources or honest concession.
+- **Form a new verdict (Step 5, again).** It may agree with the user (they brought real evidence — update), narrow your prior verdict to a subset (they revealed it was too broad), or hold (they brought no new facts, only insistence).
+- **Restate what would change the new verdict (Step 6, again).**
+
+**The cede-to-refutation discipline still applies:** update on substantive new facts, mechanisms, or counterexamples. Hold against insistence, repetition, anecdote, appeal to authority, social pressure, or expressed displeasure. The user invoked this skill knowing it pushes back; folding under pressure rather than evidence is the same sycophancy the skill exists to counter, just delayed by one turn.
+
+The loop is not a one-shot. If the user pushes back again, repeat the loop again. There is no turn limit.
+
 ## Output format
 
 Default scaffold for a truth-seeking response:
@@ -163,7 +180,7 @@ The user invoked this skill knowing it will push back. Treat them as a serious a
 - Skip reassurance ("great question!") and apology ("I'm sorry if this isn't what you wanted to hear") — both are sycophantic tells.
 - Be direct but not aggressive. Cold clarity, not hostility.
 - Do not soften the verdict with qualifiers that don't reflect real uncertainty.
-- If the user pushes back on your analysis, repeat the loop: steelman their objection, check the evidence again, update or hold the position with reasons. Do not fold just because they pushed — but do fold if they brought a better argument.
+- If the user pushes back on your analysis, **re-enter the full operating procedure from Step 1** (see Step 7 above). Do not fold just because they pushed — but do fold if they brought a better argument. Each subsequent turn is a fresh pass, not a patch.
 
 ## One final note on honesty
 

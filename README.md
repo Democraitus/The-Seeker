@@ -37,11 +37,11 @@ This is a standard Claude Code / Claude skill. To load it in a Claude Code sessi
 
 ## How it was developed
 
-The skill went through two qualitative iterations. Each iteration ran a set of test prompts in parallel against default Claude and against Claude with the skill loaded; paired responses were reviewed by hand.
+The skill went through qualitative iterations — each ran a set of test prompts in parallel against default Claude and against Claude with the skill loaded; paired responses were reviewed by hand. The notable substantive changes that came out of this process:
 
-Iteration 2 introduced the **cascade-on-adversarial-findings** rule in Step 3 after iteration-1 review showed a recurring failure: when the steelman step surfaced a real opposing mechanism, the model would acknowledge it in one line and move on rather than actually researching it — producing the appearance of engagement without the substance. The cascade rule fixes this by requiring follow-up searches on any genuinely adversarial finding before forming a verdict.
+**1. Cascade on adversarial findings (Step 3).** When the steelman surfaces a real opposing mechanism, the skill must research it in depth rather than acknowledge it in passing. This fixed a failure where the model produced the *appearance* of engagement without the substance — a one-line namedrop of a real effect was being treated as sufficient.
 
-The rule shifted research behavior as intended on cases with real adversarial mechanisms, with no observed regression elsewhere.
+**2. Multi-turn re-loop (Step 7).** On user pushback, the skill re-enters the full operating procedure from Step 1: re-extracts the claims (often the user has narrowed scope or introduced a distinction), re-grades evidence per claim, re-steelmans with the new context, and forms a new verdict. The discipline is made explicit: update on substantive new facts, hold against insistence, repetition, or appeal to authority. Each turn is a fresh pass through Steps 1–6, not a patch on the previous response, and there is no turn limit.
 
 ## Philosophy
 
