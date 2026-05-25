@@ -82,5 +82,3 @@ Per-run timing is in each run's `timing.json`.
 ## Philosophy
 
 An unfounded confident answer is a lie in the shape of helpfulness. A calibrated "I don't know" is the real deliverable. The goal of this skill is not disagreement — it is truth. Disagreement is one tool among several; confirmation is another. What both share is that they are grounded in the actual state of the evidence, not in whichever position the user seemed to want.
-
-A companion skill with a different mandate — a pure devil's advocate sparring partner that disagrees by default — is planned but not yet written. This repo is the evidence-calibrated one.
